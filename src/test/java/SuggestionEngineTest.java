@@ -1,12 +1,15 @@
 import com.keyin.SuggestionEngine;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class SuggestionEngineTest {
     public SuggestionEngine suggestionEngine = new SuggestionEngine();
@@ -25,7 +28,7 @@ public class SuggestionEngineTest {
             // Display the dictionary contents
             System.out.println("Dictionary contents:");
             suggestionEngine.getWordSuggestionDB().forEach((word, count) -> {
-                System.out.println(word + " - " + count);
+//                System.out.println(word + " - " + count);
             });
         } catch (IOException e) {
             System.err.println("Error loading dictionary data: " + e.getMessage());
@@ -55,7 +58,7 @@ public class SuggestionEngineTest {
         // Test with an incorrect word
         String suggestionsForIncorrectWord = suggestionEngine.generateSuggestions(incorrectWord);
         System.out.println("Suggestions for incorrect word: " + suggestionsForIncorrectWord);
-        assertFalse(suggestionsForIncorrectWord.isEmpty());
+        Assertions.assertFalse(suggestionsForIncorrectWord.isEmpty());
     }
 
     @Test
@@ -74,7 +77,7 @@ public class SuggestionEngineTest {
 
         System.out.println("Dictionary contents:");
         suggestionEngine.getWordSuggestionDB().forEach((word, count) -> {
-            System.out.println(word + " - " + count);
+//            System.out.println(word + " - " + count);
         });
 
         // Test with a known word
