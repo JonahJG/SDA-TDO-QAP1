@@ -16,21 +16,16 @@ public class SuggestionEngineTest {
 
     @Test
     public void testLoadDictionaryData() {
-        // Absolute path to the "words.txt" file
-        String absolutePath = "C:\\Users\\jonah\\Desktop\\Semester4\\DevOps\\QAP1\\SDA-TDO-QAP1\\src\\main\\resources\\words.txt";
-
-        // Load dictionary data from the absolute path
         try {
-            System.out.println("Loading dictionary data from: " + absolutePath);
-            suggestionEngine.loadDictionaryData(Paths.get(absolutePath));
+            System.out.println("Loading dictionary data from classpath: words.txt");
+            suggestionEngine.loadDictionaryData(Paths.get(ClassLoader.getSystemResource("words.txt").toURI()));
             System.out.println("Dictionary data loaded successfully.");
 
-            // Display the dictionary contents
             System.out.println("Dictionary contents:");
             suggestionEngine.getWordSuggestionDB().forEach((word, count) -> {
-//                System.out.println(word + " - " + count);
+                 System.out.println(word + " - " + count);
             });
-        } catch (IOException e) {
+        } catch (URISyntaxException | IOException e) {
             System.err.println("Error loading dictionary data: " + e.getMessage());
             throw new RuntimeException(e);
         }

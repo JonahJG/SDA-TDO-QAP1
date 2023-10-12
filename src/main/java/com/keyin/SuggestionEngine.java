@@ -96,22 +96,23 @@ public class SuggestionEngine {
 
     public static void main(String[] args) throws Exception {
         if (args.length != 1) {
-            System.out.println("USAGE: " + SuggestionEngine.class.getName() + " <word to generateSuggestions>");
+            System.out.println("USAGE: " + SuggestionEngine.class.getName() + "generateSuggestions");
         }
         if (args.length == 1 && args[0].equalsIgnoreCase("?")) {
-            System.out.println("USAGE: " + SuggestionEngine.class.getName() + " <word to generateSuggestions>");
+            System.out.println("USAGE: " + SuggestionEngine.class.getName() + "generateSuggestions");
             System.out.println("Output: A list of suggestions OR empty string if word is generateSuggestions");
         }
 
-        String absolutePath = "C:\\Users\\jonah\\Desktop\\Semester4\\DevOps\\QAP1\\SDA-TDO-QAP1\\src\\main\\resources\\words.txt";
-
         SuggestionEngine suggestionEngine = new SuggestionEngine();
-        suggestionEngine.loadDictionaryData(Paths.get(absolutePath));
+        try {
+            suggestionEngine.loadDictionaryData(Paths.get( ClassLoader.getSystemResource("words.txt").toURI()));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         System.out.println(suggestionEngine.generateSuggestions(args[0]));
     }
-
-
 }
+
 
 
