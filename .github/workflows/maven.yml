@@ -6,7 +6,6 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
 
 on:
   push:
@@ -16,6 +15,7 @@ on:
 
 jobs:
   build:
+    name: Java CI with Maven
 
     runs-on: ubuntu-latest
 
