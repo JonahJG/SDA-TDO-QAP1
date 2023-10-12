@@ -35,7 +35,7 @@ public class SuggestionEngineTest {
 
     @Test
     public void testGenerateSuggestions() {
-        // Test generateSuggestions method from SuggestionEngine, using a correct word (Apple) and an incorrect word. Add system.out statements to see if the words.txt file is being accessed properly
+
         try {
             suggestionEngine.loadDictionaryData(Paths.get(ClassLoader.getSystemResource("words.txt").toURI()));
         } catch (URISyntaxException | IOException e) {
@@ -58,7 +58,7 @@ public class SuggestionEngineTest {
 
     @Test
     public void testKnown() {
-        // Test known method from SuggestionEngine, using a correct word (jazzy) and an unknown word.
+
         try {
             System.out.println("Loading dictionary data...");
             suggestionEngine.loadDictionaryData(Paths.get(ClassLoader.getSystemResource("words.txt").toURI()));

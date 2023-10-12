@@ -39,8 +39,8 @@ public class SuggestionEngine {
     }
 
     /**
-     * Load a list of words into memory from the given Path, converting all words to lower casea and file is assumed to
-     * be dilimited by '\n'.
+     * Load a list of words into memory from the given Path, converting all words to lower case and file is assumed to
+     * be delimited by '\n'.
      *
      * @param dictionaryFile the Path to the file to be loaded
      * @throws IOException a any file loading problems
